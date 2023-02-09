@@ -59,6 +59,11 @@ service P4Runtime {
 
   rpc Capabilities(CapabilitiesRequest) returns (CapabilitiesResponse) {
   }
+
+// Get properties of a resource
+ rpc GetResourceProperties(GetResourcePropertiesRequest)
+      returns (GetResourcePropertiesResponse) {
+  }
 }
 
 //------------------------------------------------------------------------------
@@ -790,4 +795,31 @@ message CapabilitiesResponse {
   // The full semantic version string (e.g. "1.1.0-rc.1") corresponding to the
   // version of the P4Runtime API currently implemented by the server.
   string p4runtime_api_version = 1;
+}
+
+//------------------------------------------------------------------------------
+message GetResourcePropertiesRequest {
+  enum PropertyType {
+	  // Default behavior. Returns all the properties of the resource.
+	  ALL = 0;
+	  // Returns number of entries in the resource
+    NUM_OF_ENTRIES = 1;
+	  // Returns total capacity of the resource
+    SIZE = 2;
+  }
+
+  // Unique identifier of a resource
+  // 0 is wildcard which fetches properties of all the resources
+  uint32 id = 1;
+  PropertyType property_type = 2;
+}
+
+message GetResourcePropertiesResponse {
+	repeated ResourceProperties = 1;
+}
+
+ResourceProperties {
+  uint32 id = 1;
+  uint32 num_of_entries = 2;
+  uint32 size = 3;
 }
