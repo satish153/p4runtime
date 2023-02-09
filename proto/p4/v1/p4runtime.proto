@@ -800,11 +800,11 @@ message CapabilitiesResponse {
 //------------------------------------------------------------------------------
 message GetResourcePropertiesRequest {
   enum PropertyType {
-	  // Default behavior. Returns all the properties of the resource.
-	  ALL = 0;
-	  // Returns number of entries in the resource
+    // Default behavior. Returns all the properties of the resource.
+    ALL = 0;
+    // Returns number of entries in the resource
     NUM_OF_ENTRIES = 1;
-	  // Returns total capacity of the resource
+    // Returns total capacity of the resource
     SIZE = 2;
   }
 
