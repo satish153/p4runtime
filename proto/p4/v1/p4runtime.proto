@@ -818,7 +818,7 @@ message GetResourcePropertiesResponse {
 	repeated ResourceProperties = 1;
 }
 
-ResourceProperties {
+message ResourceProperties {
   uint32 id = 1;
   uint32 num_of_entries = 2;
   uint32 size = 3;
