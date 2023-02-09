@@ -815,7 +815,7 @@ message GetResourcePropertiesRequest {
 }
 
 message GetResourcePropertiesResponse {
-	repeated ResourceProperties = 1;
+  repeated ResourceProperties = 1;
 }
 
 message ResourceProperties {
